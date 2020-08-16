@@ -1,0 +1,39 @@
+
+Showing logs for build [32mcb-kubecd-bdd-gh-1597557714-pr-2sx4m-1[0m stage [32mfrom-build-pack[0m and container [32mstep-credential-initializer-nshk2[0m
+{"level":"info","ts":1597558674.5611763,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
+{"level":"info","ts":1597558674.5616913,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mcb-kubecd-bdd-gh-1597557714-pr-2sx4m-1[0m stage [32mfrom-build-pack[0m and container [32mstep-working-dir-initializer-9v7qx[0m
+{"level":"info","ts":1597558674.84209,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1597558674.8430548,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mcb-kubecd-bdd-gh-1597557714-pr-2sx4m-1[0m stage [32mfrom-build-pack[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mcb-kubecd-bdd-gh-1597557714-pr-2sx4m-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-cb-kubecd-bdd-gh-1597557714-pr-2sx4m-bffms[0m
+{"level":"info","ts":1597558698.9602702,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/refs/heads/0.8.0-ns-support: no such file or directory"}
+{"level":"info","ts":1597558700.0267074,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/cb-kubecd/bdd-gh-1597557714.git @ master in path /workspace/source"}
+
+Showing logs for build [32mcb-kubecd-bdd-gh-1597557714-pr-2sx4m-1[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:bd2bd28c9cf232cb0486e4a8f48a2e3b4282220e,1:5a121c101486910d9c77dd9af49a765b9583731e
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin --unshallow 5a121c101486910d9c77dd9af49a765b9583731e: bd2bd28c9cf232cb0486e4a8f48a2e3b4282220e:
+DEBUG: ran git fetch --unshallow origin 5a121c101486910d9c77dd9af49a765b9583731e: bd2bd28c9cf232cb0486e4a8f48a2e3b4282220e: in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git branch
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git checkout master
+DEBUG: ran git checkout master in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git reset --hard bd2bd28c9cf232cb0486e4a8f48a2e3b4282220e
+DEBUG: ran git reset --hard bd2bd28c9cf232cb0486e4a8f48a2e3b4282220e in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git clean -fd .
+DEBUG: ran clean --force -d . in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git merge 5a121c101486910d9c77dd9af49a765b9583731e
+DEBUG: ran git merge 5a121c101486910d9c77dd9af49a765b9583731e in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e bd2bd28c9cf232cb0486e4a8f48a2e3b4282220e..HEAD
+Merged SHA 5a121c101486910d9c77dd9af49a765b9583731e with commit message 'My first PR commit' into base branch master
+
+Showing logs for build [32mcb-kubecd-bdd-gh-1597557714-pr-2sx4m-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-make-linux[0m
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GO15VENDOREXPERIMENT=1 go build -ldflags '' -o bin/bdd-gh-1597557714 main.go
+
+Showing logs for build [32mcb-kubecd-bdd-gh-1597557714-pr-2sx4m-1[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+ERROR: logging before flag.Parse: E0816 06:18:26.488317      10 metadata.go:241] Failed to unmarshal scopes: json: cannot unmarshal string into Go value of type []string
+error checking push permissions -- make sure you entered the correct tag name, and that you are authenticated correctly, and try again: checking push permission for "gcr.io/jenkins-x-labs-bdd/bdd-gh-1597557714:0.0.0-SNAPSHOT-PR-1-1": resolving authorization for gcr.io failed: error getting credentials - err: exit status 1, out: `docker-credential-gcr/helper: could not retrieve GCR's access token: metadata: GCE metadata "instance/service-accounts/default/token" not defined`
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-build-container-build'. The execution of the pipeline has stopped.[0m
